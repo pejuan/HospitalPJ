@@ -14,7 +14,11 @@ class DoctorsController < ApplicationController
 
   # GET /doctors/new
   def new
-    @doctor = Doctor.new
+    if current_admin.doctor.nil?
+      @doctor = Doctor.new
+    else
+      redirect_to doctors_path
+    end
   end
 
   # GET /doctors/1/edit
@@ -25,7 +29,8 @@ class DoctorsController < ApplicationController
   # POST /doctors.json
   def create
     @doctor = Doctor.new(doctor_params)
-
+    @doctor.admin_id = current_user.id
+    @doctor.email = current_user.email
     respond_to do |format|
       if @doctor.save
         format.html { redirect_to @doctor, notice: 'Doctor was successfully created.' }
