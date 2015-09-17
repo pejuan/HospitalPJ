@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :microbiologists
+  resources :nurses
   resources :doctors
   devise_for :admins
   resources :patients
