@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient_id: 
+  billDate: 2015-09-19
+  hospitalizationCost: 1.5
+  hemogramCost: 1.5
+  doctorsPayment: 1.5
+  biochemistryCost: 1.5
+  visit_id: 
+  hospitalization_id: 
+
+two:
+  patient_id: 
+  billDate: 2015-09-19
+  hospitalizationCost: 1.5
+  hemogramCost: 1.5
+  doctorsPayment: 1.5
+  biochemistryCost: 1.5
+  visit_id: 
+  hospitalization_id: 

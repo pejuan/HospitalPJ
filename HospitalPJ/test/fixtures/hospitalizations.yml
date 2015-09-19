@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  daysSpent: 1
+  roomNumber: MyString
+  entryDate: 2015-09-19
+  doctor_id: 
+  cost: 1.5
+
+two:
+  daysSpent: 1
+  roomNumber: MyString
+  entryDate: 2015-09-19
+  doctor_id: 
+  cost: 1.5

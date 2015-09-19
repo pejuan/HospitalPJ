@@ -1,0 +1,2 @@
+module IllnessDetailsHelper
+end

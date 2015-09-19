@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Hospitalizations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Daysspent</th>
+      <th>Roomnumber</th>
+      <th>Entrydate</th>
+      <th>Doctor</th>
+      <th>Cost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hospitalizations.each do |hospitalization| %>
+      <tr>
+        <td><%= hospitalization.daysSpent %></td>
+        <td><%= hospitalization.roomNumber %></td>
+        <td><%= hospitalization.entryDate %></td>
+        <td><%= hospitalization.doctor %></td>
+        <td><%= hospitalization.cost %></td>
+        <td><%= link_to 'Show', hospitalization %></td>
+        <td><%= link_to 'Edit', edit_hospitalization_path(hospitalization) %></td>
+        <td><%= link_to 'Destroy', hospitalization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hospitalization', new_hospitalization_path %>
