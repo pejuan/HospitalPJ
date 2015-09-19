@@ -13,7 +13,66 @@
   </head>
 
   <body>
+    <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="">Hospital Peter John</a></h1>
+          </li>
+           <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
 
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <% if user_signed_in? %>
+              
+              <li>
+                <a href="">Mi Perfil</a>
+              </li>
+              <li>
+                <a href="">Generar Estadisticas</a>
+              </li>
+              <li>
+                <a href="">Ver/Subir Registros</a>
+              </li>
+              <li>
+                <a href="<%= edit_user_registration_path %>">Editar Cuenta</a>
+              </li>
+              <li class="active"><a href="<%= destroy_user_session_path %>">Log Out</a></li>              
+            <% else %>
+              <% if admin_signed_in? %>
+                <li>
+                  <a href="">Mi Perfil</a>
+                </li>
+                <li>
+                  <a href="">Generar Estadisticas</a>
+                </li>
+                <li>
+                  <a href="">Ver/Subir Registros</a>
+                </li>
+                <li>
+                  <a href="<%= edit_admin_registration_path %>">Editar Cuenta</a>
+                </li>
+                <li class="active"><a href="<%= destroy_admin_session_path %>">Log Out</a></li> 
+              <% else %>
+                <li class="">
+                  <a href="<%= user_session_path %>">Log in Paciente!</a>
+                </li>
+                <li class="">
+                  <a href="<%= admin_session_path %>">Log in Doctor!</a>
+                </li>
+                <li class="">
+                  <a href="<%= new_user_registration_path %>">Registrar Paciente!</a>
+                </li>
+                <li class="">
+                  <a href="<%= new_admin_registration_path %>">Registrar Doctor!</a>
+                </li>
+              <% end %>
+            <% end %>
+          <!-- Left Nav Section -->
+        </section>
+      </nav>
     <%= yield %>
 
   </body>
