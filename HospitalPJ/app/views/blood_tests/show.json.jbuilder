@@ -1,0 +1,1 @@
+json.extract! @blood_test, :id, :test_date, :erythrocytes, :hemoglobin, :vcm, :hcm, :lymphocytes, :leukocytes, :neutrophils, :eosinofilos, :platelets, :vsg, :patient_id, :microbiologist, :examination_cost, :created_at, :updated_at

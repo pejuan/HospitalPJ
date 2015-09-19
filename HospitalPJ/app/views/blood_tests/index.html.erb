@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Blood Tests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Test date</th>
+      <th>Erythrocytes</th>
+      <th>Hemoglobin</th>
+      <th>Vcm</th>
+      <th>Hcm</th>
+      <th>Lymphocytes</th>
+      <th>Leukocytes</th>
+      <th>Neutrophils</th>
+      <th>Eosinofilos</th>
+      <th>Platelets</th>
+      <th>Vsg</th>
+      <th>Patient</th>
+      <th>Microbiologist</th>
+      <th>Examination cost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blood_tests.each do |blood_test| %>
+      <tr>
+        <td><%= blood_test.test_date %></td>
+        <td><%= blood_test.erythrocytes %></td>
+        <td><%= blood_test.hemoglobin %></td>
+        <td><%= blood_test.vcm %></td>
+        <td><%= blood_test.hcm %></td>
+        <td><%= blood_test.lymphocytes %></td>
+        <td><%= blood_test.leukocytes %></td>
+        <td><%= blood_test.neutrophils %></td>
+        <td><%= blood_test.eosinofilos %></td>
+        <td><%= blood_test.platelets %></td>
+        <td><%= blood_test.vsg %></td>
+        <td><%= blood_test.patient %></td>
+        <td><%= blood_test.microbiologist %></td>
+        <td><%= blood_test.examination_cost %></td>
+        <td><%= link_to 'Show', blood_test %></td>
+        <td><%= link_to 'Edit', edit_blood_test_path(blood_test) %></td>
+        <td><%= link_to 'Destroy', blood_test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Blood test', new_blood_test_path %>
