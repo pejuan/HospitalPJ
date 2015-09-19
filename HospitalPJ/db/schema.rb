@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150919023644) do
+ActiveRecord::Schema.define(version: 20150919221032) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,6 +30,23 @@ ActiveRecord::Schema.define(version: 20150919023644) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+
+  create_table "bills", force: :cascade do |t|
+    t.integer  "patient_id"
+    t.date     "billDate"
+    t.float    "hospitalizationCost"
+    t.float    "hemogramCost"
+    t.float    "doctorsPayment"
+    t.float    "biochemistryCost"
+    t.integer  "visit_id"
+    t.integer  "hospitalization_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "bills", ["hospitalization_id"], name: "index_bills_on_hospitalization_id"
+  add_index "bills", ["patient_id"], name: "index_bills_on_patient_id"
+  add_index "bills", ["visit_id"], name: "index_bills_on_visit_id"
 
   create_table "blood_chemistry_tests", force: :cascade do |t|
     t.float    "glucose"
@@ -98,6 +115,35 @@ ActiveRecord::Schema.define(version: 20150919023644) do
 
   add_index "doctors", ["admin_id"], name: "index_doctors_on_admin_id"
 
+  create_table "hospitalizations", force: :cascade do |t|
+    t.integer  "daysSpent"
+    t.string   "roomNumber"
+    t.date     "entryDate"
+    t.integer  "doctor_id"
+    t.float    "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "hospitalizations", ["doctor_id"], name: "index_hospitalizations_on_doctor_id"
+
+  create_table "illness_details", force: :cascade do |t|
+    t.string   "mainSymptom"
+    t.date     "dateSymptomAppeared"
+    t.string   "calmsPain"
+    t.string   "intensifiesPain"
+    t.time     "peakHour"
+    t.integer  "patient_id"
+    t.integer  "hospitalization_id"
+    t.integer  "visit_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "illness_details", ["hospitalization_id"], name: "index_illness_details_on_hospitalization_id"
+  add_index "illness_details", ["patient_id"], name: "index_illness_details_on_patient_id"
+  add_index "illness_details", ["visit_id"], name: "index_illness_details_on_visit_id"
+
   create_table "microbiologists", force: :cascade do |t|
     t.string   "id_number"
     t.string   "name"
@@ -160,5 +206,15 @@ ActiveRecord::Schema.define(version: 20150919023644) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "visits", force: :cascade do |t|
+    t.date     "visitDate"
+    t.boolean  "Hospitalized"
+    t.integer  "doctor_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "visits", ["doctor_id"], name: "index_visits_on_doctor_id"
 
 end
