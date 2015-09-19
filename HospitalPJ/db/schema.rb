@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150917185936) do
+ActiveRecord::Schema.define(version: 20150919023644) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,6 +30,56 @@ ActiveRecord::Schema.define(version: 20150917185936) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+
+  create_table "blood_chemistry_tests", force: :cascade do |t|
+    t.float    "glucose"
+    t.float    "urea"
+    t.float    "uric_acid"
+    t.float    "creatinine"
+    t.float    "cholesterol"
+    t.float    "hdl"
+    t.float    "ldl"
+    t.float    "triglycerides"
+    t.float    "got"
+    t.float    "gpt"
+    t.float    "ggt"
+    t.float    "alkaline_phosphatase"
+    t.float    "calcium"
+    t.float    "iron"
+    t.float    "potassium"
+    t.float    "sodium"
+    t.float    "bilirubin"
+    t.date     "test_date"
+    t.integer  "patient_id"
+    t.integer  "microbiologist_id"
+    t.float    "examination_cost"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "blood_chemistry_tests", ["microbiologist_id"], name: "index_blood_chemistry_tests_on_microbiologist_id"
+  add_index "blood_chemistry_tests", ["patient_id"], name: "index_blood_chemistry_tests_on_patient_id"
+
+  create_table "blood_tests", force: :cascade do |t|
+    t.date     "test_date"
+    t.float    "erythrocytes"
+    t.float    "hemoglobin"
+    t.float    "vcm"
+    t.float    "hcm"
+    t.float    "lymphocytes"
+    t.float    "leukocytes"
+    t.float    "neutrophils"
+    t.float    "eosinofilos"
+    t.float    "platelets"
+    t.float    "vsg"
+    t.integer  "patient_id"
+    t.float    "microbiologist"
+    t.float    "examination_cost"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "blood_tests", ["patient_id"], name: "index_blood_tests_on_patient_id"
 
   create_table "doctors", force: :cascade do |t|
     t.string   "name"

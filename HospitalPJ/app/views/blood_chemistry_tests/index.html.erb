@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Blood Chemistry Tests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Glucose</th>
+      <th>Urea</th>
+      <th>Uric acid</th>
+      <th>Creatinine</th>
+      <th>Cholesterol</th>
+      <th>Hdl</th>
+      <th>Ldl</th>
+      <th>Triglycerides</th>
+      <th>Got</th>
+      <th>Gpt</th>
+      <th>Ggt</th>
+      <th>Alkaline phosphatase</th>
+      <th>Calcium</th>
+      <th>Iron</th>
+      <th>Potassium</th>
+      <th>Sodium</th>
+      <th>Bilirubin</th>
+      <th>Test date</th>
+      <th>Patient</th>
+      <th>Microbiologist</th>
+      <th>Examination cost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blood_chemistry_tests.each do |blood_chemistry_test| %>
+      <tr>
+        <td><%= blood_chemistry_test.glucose %></td>
+        <td><%= blood_chemistry_test.urea %></td>
+        <td><%= blood_chemistry_test.uric_acid %></td>
+        <td><%= blood_chemistry_test.creatinine %></td>
+        <td><%= blood_chemistry_test.cholesterol %></td>
+        <td><%= blood_chemistry_test.hdl %></td>
+        <td><%= blood_chemistry_test.ldl %></td>
+        <td><%= blood_chemistry_test.triglycerides %></td>
+        <td><%= blood_chemistry_test.got %></td>
+        <td><%= blood_chemistry_test.gpt %></td>
+        <td><%= blood_chemistry_test.ggt %></td>
+        <td><%= blood_chemistry_test.alkaline_phosphatase %></td>
+        <td><%= blood_chemistry_test.calcium %></td>
+        <td><%= blood_chemistry_test.iron %></td>
+        <td><%= blood_chemistry_test.potassium %></td>
+        <td><%= blood_chemistry_test.sodium %></td>
+        <td><%= blood_chemistry_test.bilirubin %></td>
+        <td><%= blood_chemistry_test.test_date %></td>
+        <td><%= blood_chemistry_test.patient %></td>
+        <td><%= blood_chemistry_test.microbiologist %></td>
+        <td><%= blood_chemistry_test.examination_cost %></td>
+        <td><%= link_to 'Show', blood_chemistry_test %></td>
+        <td><%= link_to 'Edit', edit_blood_chemistry_test_path(blood_chemistry_test) %></td>
+        <td><%= link_to 'Destroy', blood_chemistry_test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Blood chemistry test', new_blood_chemistry_test_path %>

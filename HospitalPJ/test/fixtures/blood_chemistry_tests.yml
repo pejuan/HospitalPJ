@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  glucose: 1.5
+  urea: 1.5
+  uric_acid: 1.5
+  creatinine: 1.5
+  cholesterol: 1.5
+  hdl: 1.5
+  ldl: 1.5
+  triglycerides: 1.5
+  got: 1.5
+  gpt: 1.5
+  ggt: 1.5
+  alkaline_phosphatase: 1.5
+  calcium: 1.5
+  iron: 1.5
+  potassium: 1.5
+  sodium: 1.5
+  bilirubin: 1.5
+  test_date: 2015-09-18
+  patient_id: 
+  microbiologist_id: 
+  examination_cost: 1.5
+
+two:
+  glucose: 1.5
+  urea: 1.5
+  uric_acid: 1.5
+  creatinine: 1.5
+  cholesterol: 1.5
+  hdl: 1.5
+  ldl: 1.5
+  triglycerides: 1.5
+  got: 1.5
+  gpt: 1.5
+  ggt: 1.5
+  alkaline_phosphatase: 1.5
+  calcium: 1.5
+  iron: 1.5
+  potassium: 1.5
+  sodium: 1.5
+  bilirubin: 1.5
+  test_date: 2015-09-18
+  patient_id: 
+  microbiologist_id: 
+  examination_cost: 1.5
