@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :secretaries
   resources :bills
   resources :illness_details
   resources :hospitalizations
