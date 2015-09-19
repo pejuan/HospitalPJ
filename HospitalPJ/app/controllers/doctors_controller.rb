@@ -29,8 +29,8 @@ class DoctorsController < ApplicationController
   # POST /doctors.json
   def create
     @doctor = Doctor.new(doctor_params)
-    @doctor.admin_id = current_user.id
-    @doctor.email = current_user.email
+    @doctor.admin_id = current_admin.id
+    @doctor.email = current_admin.email
     respond_to do |format|
       if @doctor.save
         format.html { redirect_to @doctor, notice: 'Doctor was successfully created.' }

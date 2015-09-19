@@ -19,7 +19,7 @@
 
   <tbody>
     <% @doctors.each do |doctor| %>
-     <%if doctor.user == current_admin %>
+     <%if doctor.admin == current_admin %>
       <tr>
         <td><%= doctor.name %></td>
         <td><%= doctor.lastname %></td>
