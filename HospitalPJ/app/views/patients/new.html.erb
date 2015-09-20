@@ -1,5 +1,9 @@
+<%if admin_signed_in?%>
 <h1>New Patient</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Back', patients_path %>
+<%else%>
+ You can't register a new patient.
+<%end%>

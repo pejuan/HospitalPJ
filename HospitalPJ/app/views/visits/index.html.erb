@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%if user_signed_in? || admin_signed_in?%>
 <h1>Listing Visits</h1>
 
 <table>
@@ -29,3 +29,6 @@
 <br>
 
 <%= link_to 'New Visit', new_visit_path %>
+<% else %>
+  You must me logged in as Doctor to view this page.
+<% end %>
