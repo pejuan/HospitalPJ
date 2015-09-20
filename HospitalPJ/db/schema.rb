@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150919222116) do
+ActiveRecord::Schema.define(version: 20150920151135) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -144,6 +144,24 @@ ActiveRecord::Schema.define(version: 20150919222116) do
   add_index "illness_details", ["patient_id"], name: "index_illness_details_on_patient_id"
   add_index "illness_details", ["visit_id"], name: "index_illness_details_on_visit_id"
 
+  create_table "labs", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "labs", ["email"], name: "index_labs_on_email", unique: true
+  add_index "labs", ["reset_password_token"], name: "index_labs_on_reset_password_token", unique: true
+
   create_table "microbiologists", force: :cascade do |t|
     t.string   "id_number"
     t.string   "name"
@@ -153,7 +171,11 @@ ActiveRecord::Schema.define(version: 20150919222116) do
     t.string   "postGraduateUniversity"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "lab_id"
+    t.string   "email"
   end
+
+  add_index "microbiologists", ["lab_id"], name: "index_microbiologists_on_lab_id"
 
   create_table "nurses", force: :cascade do |t|
     t.string   "name"

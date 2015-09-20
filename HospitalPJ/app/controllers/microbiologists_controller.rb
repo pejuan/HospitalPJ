@@ -1,6 +1,6 @@
 class MicrobiologistsController < ApplicationController
   before_action :set_microbiologist, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /microbiologists
   # GET /microbiologists.json
   def index
