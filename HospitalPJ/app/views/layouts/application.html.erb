@@ -56,18 +56,63 @@
                 </li>
                 <li class="active"><a href="<%= destroy_admin_session_path %>">Log Out</a></li> 
               <% else %>
-                <li class="">
-                  <a href="<%= user_session_path %>">Log in Paciente!</a>
-                </li>
-                <li class="">
-                  <a href="<%= admin_session_path %>">Log in Doctor!</a>
-                </li>
-                <li class="">
-                  <a href="<%= new_user_registration_path %>">Registrar Paciente!</a>
-                </li>
-                <li class="">
-                  <a href="<%= new_admin_registration_path %>">Registrar Doctor!</a>
-                </li>
+                <% if lab_signed_in? %>
+                  <li>
+                    <a href="">Mi Perfil</a>
+                  </li>
+                  <li>
+                    <a href="">Generar Estadisticas</a>
+                  </li>
+                  <li>
+                    <a href="">Ver/Subir Registros</a>
+                  </li>
+                  <li>
+                    <a href="<%= edit_lab_registration_path %>">Editar Cuenta</a>
+                  </li>
+                  <li class="active"><a href="<%= destroy_lab_session_path %>">Log Out</a></li>
+                <% else %>
+                  <% if secretary_signed_in? %>
+                    <li>
+                      <a href="">Mi Perfil</a>
+                    </li>
+                    <li>
+                      <a href="">Generar Estadisticas</a>
+                    </li>
+                    <li>
+                      <a href="">Ver/Subir Registros</a>
+                    </li>
+                    <li>
+                      <a href="<%= edit_secretary_registration_path %>">Editar Cuenta</a>
+                    </li>
+                    <li class="active"><a href="<%= destroy_secretary_session_path %>">Log Out</a></li>
+                  <% else %>
+                    <li class="">
+                      <a href="<%= user_session_path %>">Log in Paciente!</a>
+                    </li>
+                    <li class="">
+                      <a href="<%= admin_session_path %>">Log in Doctor!</a>
+                    </li>
+                    <li class="">
+                      <a href="<%= lab_session_path %>">Log in Microbiologo!</a>
+                    </li>
+                    <li class="">
+                      <a href="<%= secretary_session_path %>">Log in Secretary!</a>
+                    </li>
+                    <li class="">
+                      <a href="<%= new_user_registration_path %>">Registrar Paciente!</a>
+                    </li>
+                    <li class="">
+                      <a href="<%= new_admin_registration_path %>">Registrar Doctor!</a>
+                    </li>
+                    <li class="">
+                      <a href="<%= new_lab_registration_path %>">Registrar Microbiologo!</a>
+                    </li>
+                    <li class="">
+                      <a href="<%= new_secretary_registration_path %>">Registrar Secretaria!</a>
+                    </li>
+                    
+                  <% end %>
+                <% end %>
               <% end %>
             <% end %>
           <!-- Left Nav Section -->

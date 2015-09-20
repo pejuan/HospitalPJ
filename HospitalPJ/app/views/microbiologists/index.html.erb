@@ -17,6 +17,7 @@
 
   <tbody>
     <% @microbiologists.each do |microbiologist| %>
+     <%if microbiologist.lab == current_lab %>
       <tr>
         <td><%= microbiologist.id_number %></td>
         <td><%= microbiologist.name %></td>
@@ -24,10 +25,12 @@
         <td><%= microbiologist.birthdate %></td>
         <td><%= microbiologist.undergraduateUniversity %></td>
         <td><%= microbiologist.postGraduateUniversity %></td>
+        <td><%= microbiologist.email %></td>
         <td><%= link_to 'Show', microbiologist %></td>
         <td><%= link_to 'Edit', edit_microbiologist_path(microbiologist) %></td>
         <td><%= link_to 'Destroy', microbiologist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+     <% end %>
     <% end %>
   </tbody>
 </table>

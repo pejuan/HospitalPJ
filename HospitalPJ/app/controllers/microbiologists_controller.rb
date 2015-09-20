@@ -1,6 +1,6 @@
 class MicrobiologistsController < ApplicationController
   before_action :set_microbiologist, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_lab!
   # GET /microbiologists
   # GET /microbiologists.json
   def index
@@ -14,7 +14,11 @@ class MicrobiologistsController < ApplicationController
 
   # GET /microbiologists/new
   def new
-    @microbiologist = Microbiologist.new
+    if current_lab.microbiologist.nil?
+      @microbiologist = Microbiologist.new
+    else
+      redirect_to microbiologists_path
+    end
   end
 
   # GET /microbiologists/1/edit
@@ -25,7 +29,8 @@ class MicrobiologistsController < ApplicationController
   # POST /microbiologists.json
   def create
     @microbiologist = Microbiologist.new(microbiologist_params)
-
+    @microbiologist.lab_id = current_lab.id
+    @microbiologist.email = current_lab.email
     respond_to do |format|
       if @microbiologist.save
         format.html { redirect_to @microbiologist, notice: 'Microbiologist was successfully created.' }
