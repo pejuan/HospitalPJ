@@ -1,5 +1,6 @@
 class BloodTestsController < ApplicationController
   before_action :set_blood_test, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_lab!
 
   # GET /blood_tests
   # GET /blood_tests.json
