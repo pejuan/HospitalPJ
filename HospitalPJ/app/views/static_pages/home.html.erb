@@ -1,7 +1,110 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+     <div class="row">
+       <div class="large-12 columns">
+         <div class="row">
+           <div class="large-12 hide-for-small">
 
-<%= link_to "Doctors", static_pages_doctors_path %><br />
-<%= link_to "Patients", static_pages_patients_path %><br />
-<%= link_to "Microbiologist", static_pages_microbiologists_path %><br />
-<%= link_to "Accounting", static_pages_accounting_path %><br />
+             <div id="featured" data-orbit>
+                 <img src="/images/hospital1.jpg" alt="slide image">
+                 <img src="/images/hospital2.jpg" alt="slide image">
+                 <img src="/images/hospital3.jpg" alt="slide image">
+               </div>
+         </div>
+       </div>
+         <div class="row">
+           <div class="large-12 columns show-for-small">
+
+             <img src="http://placehold.it/1200x700&text=Mobile Header">
+           </div>
+         </div><br>
+         <div class="row">
+           <div class="large-12 columns">
+             <div class="row">
+               <div class="large-4 small-6 columns">
+                 <h4>Applications</h4><hr>
+                 <div class="row">
+                   <div class="large-1 column">
+                     <img src="/images/patienticon.png">
+                   </div>
+
+                   <div class="large-9 columns">
+                     <h5><a href="<%= user_session_path %>">Patient Application</a></h5>
+                     <h6 class="subheader show-for-small">Doors at 00:00pm</h6>
+                   </div>
+                 </div><hr>
+
+                 <div class="hide-for-small">
+                   <div class="row">
+                     <div class="large-1 column">
+                       <img src="/images/doctoricon.png">
+                     </div>
+
+                     <div class="large-9 columns">
+                       <h5 class="subheader"><a href="<%= admin_session_path %>">Doctor Application</a></h5>
+                     </div>
+                   </div><hr>
+
+                   <div class="row">
+                     <div class="large-1 column">
+                       <img src="/images/labicon.png">
+                     </div>
+
+                     <div class="large-9 columns">
+                       <h5 class="subheader"><a href="<%= lab_session_path %>">Laboratory Application</a></h5>
+                     </div>
+                   </div><hr>
+
+                   <div class="row">
+                     <div class="large-1 column">
+                       <img src="/images/coinicon.jpeg">
+                     </div>
+
+                     <div class="large-9 columns">
+                       <h5 class="subheader"><a href="<%= secretary_session_path %>">Accounting Application</a></h5>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+               <div class="large-4 small-6 columns">
+                 <img src="/images/logoMedicina.jpg">
+               </div>
+               <div class="large-4 small-12 columns">
+                 <h4>Reviews</h4><hr>
+                 <div class="panel">
+                   <h5><a href="#">Enrique Tinoco said:</a></h5>
+                   <h6 class="subheader">
+                     Thank you, very nice attention. Such a nice application!
+                 </div>
+                 <div class="panel hide-for-small">
+                   <h5><a href="#">Alberto Martinez said: </a></h5>
+                   <h6 class="subheader">
+                     I want to be sick again so I can return!
+                 </div>
+                 <div class="panel hide-for-small">
+                   <h5><a href="#">Eduardo Alvarado said:</a></h5>
+                   <h6 class="subheader">
+                     The best hospital so far!
+                 </div>
+             </div>
+           </div>
+         </div>
+         <footer class="row">
+           <div class="large-12 columns"><hr>
+               <div class="row">
+
+                 <div class="large-6 columns">
+                     <p>© Copyright no one at all. Go to town.</p>
+                 </div>
+               </div>
+           </div>
+         </footer>
+       </div>
+     </div>
+     <script>
+     document.write('<script src=js/vendor/' +
+     ('__proto__' in {} ? 'zepto' : 'jquery') +
+     '.js><\/script>')
+     </script>
+     <script src="js/foundation.min.js"></script>
+     <script>
+       $(document).foundation();
+     </script>
