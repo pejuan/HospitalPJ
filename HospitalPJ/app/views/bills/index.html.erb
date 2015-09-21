@@ -19,8 +19,6 @@
           <th>Blood Test Cost</th>
           <th>Doctors Payment</th>
           <th>Blood Chemistry Test Cost</th>
-          <th>Visit</th>
-          <th>Hospitalization</th>
           <th>Total</th>
           <th colspan="2"></th>
         </tr>
@@ -29,14 +27,12 @@
       <tbody>
         <% @bills.each do |bill| %>
           <tr>
-            <td><%= bill.patient %></td>
+            <td><%= bill.patient.name %> <%= bill.patient.lastname %></td>
             <td><%= bill.billDate %></td>
             <td><%= bill.hospitalizationCost %></td>
             <td><%= bill.hemogramCost %></td>
             <td><%= bill.doctorsPayment %></td>
             <td><%= bill.biochemistryCost %></td>
-            <td><%= bill.visit %></td>
-            <td><%= bill.hospitalization %></td>
             <td><%= bill.total %></td>
             <td><%= link_to 'Edit', edit_bill_path(bill), class:"button round tiny secondary" %></td>
             <td><%= link_to 'Delete', bill, method: :delete, data: { confirm: 'Are you sure?' }, class:"button round tiny alert" %></td>
