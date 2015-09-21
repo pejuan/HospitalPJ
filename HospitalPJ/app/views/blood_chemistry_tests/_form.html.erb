@@ -85,7 +85,7 @@
   </div>
   <div class="field">
     <%= f.label :patient_id %><br>
-    <%= f.text_field :patient_id %>
+    <%= f.collection_select :patient_id, Patient.all, :id, :email %>
   </div>
   <div class="field">
     <%= f.label :microbiologist_id %><br>
