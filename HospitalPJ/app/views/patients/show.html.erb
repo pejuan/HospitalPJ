@@ -1,7 +1,7 @@
 <%if user_signed_in? %>
 <div class="row">
   <div class="twelve columns text-center"><br />
-    <h1>Your Profile Was Successfully Created!</h1>
+    <h1>Your Patient Profile Was Successfully Created!</h1>
     <p> Please continue! </p>
     <%= link_to 'Continue', patients_path, class: "button success" %>
   </div>
@@ -12,10 +12,9 @@
 <% if admin_signed_in? %>
 <div class="row">
   <div class="twelve columns text-center"><br />
-    <h1>The Patient Was Successfully Modified!</h1>
+    <h1>The Patient Profile Was Successfully Modified!</h1>
     <p> Please continue! </p>
     <%= link_to 'Continue', patients_path, class: "button success" %>
   </div>
 </div>
-
 <% end %>

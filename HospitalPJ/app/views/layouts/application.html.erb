@@ -3,15 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
     <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
@@ -35,20 +32,23 @@
               <li class="active"><a href="<%= destroy_user_session_path %>">Log Out</a></li>
             <% else %>
               <% if admin_signed_in? %>
+              <li>
+                <a href="<%= static_pages_home_path %>">Home</a>
+              </li>
                 <li>
                   <a href="<%= doctors_path %>">My Profile</a>
                 </li>
                 <li>
-                  <a href="">Patients</a>
+                  <a href="<%= patients_path %>">Patients</a>
                 </li>
                 <li>
-                  <a href="">Visits</a>
+                  <a href="<%= visits_path %>">Visits</a>
                 </li>
                 <li>
-                  <a href="">Hospitalizations</a>
+                  <a href="<%= hospitalizations_path %>">Hospitalizations</a>
                 </li>
                 <li>
-                  <a href="">Illness Details</a>
+                  <a href="<%= illness_details_path %>">Illness Details</a>
                 </li>
                 <li class="active"><a href="<%= destroy_admin_session_path %>">Log Out</a></li>
               <% else %>
