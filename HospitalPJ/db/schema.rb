@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150920151135) do
+ActiveRecord::Schema.define(version: 20150920235311) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -123,9 +123,12 @@ ActiveRecord::Schema.define(version: 20150920151135) do
     t.float    "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "payed"
+    t.integer  "patient_id"
   end
 
   add_index "hospitalizations", ["doctor_id"], name: "index_hospitalizations_on_doctor_id"
+  add_index "hospitalizations", ["patient_id"], name: "index_hospitalizations_on_patient_id"
 
   create_table "illness_details", force: :cascade do |t|
     t.string   "mainSymptom"

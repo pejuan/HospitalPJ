@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :patient_id %><br>
+    <%= f.collection_select :patient_id, Patient.all, :id, :email %>
+  </div>
+  <div class="field">
     <%= f.label :daysSpent %><br>
     <%= f.number_field :daysSpent %>
   </div>
@@ -30,6 +34,10 @@
   <div class="field">
     <%= f.label :cost %><br>
     <%= f.text_field :cost %>
+  </div>
+  <div class="field">
+    <%= f.label :payed %><br>
+    <%= f.check_box :payed %>
   </div>
   <div class="actions">
     <%= f.submit %>
