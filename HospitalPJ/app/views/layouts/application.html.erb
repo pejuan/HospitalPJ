@@ -16,7 +16,7 @@
     <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
           <li class="name">
-            <h1><a href="">Hospital Peter John</a></h1>
+            <h1><a href="">Peter John Private Hospital</a></h1>
           </li>
            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
           <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -26,7 +26,6 @@
           <!-- Right Nav Section -->
           <ul class="right">
             <% if user_signed_in? %>
-              
               <li>
                 <a href="">Mi Perfil</a>
               </li>
@@ -39,7 +38,7 @@
               <li>
                 <a href="<%= edit_user_registration_path %>">Editar Cuenta</a>
               </li>
-              <li class="active"><a href="<%= destroy_user_session_path %>">Log Out</a></li>              
+              <li class="active"><a href="<%= destroy_user_session_path %>">Log Out</a></li>
             <% else %>
               <% if admin_signed_in? %>
                 <li>
@@ -54,7 +53,7 @@
                 <li>
                   <a href="<%= edit_admin_registration_path %>">Editar Cuenta</a>
                 </li>
-                <li class="active"><a href="<%= destroy_admin_session_path %>">Log Out</a></li> 
+                <li class="active"><a href="<%= destroy_admin_session_path %>">Log Out</a></li>
               <% else %>
                 <% if lab_signed_in? %>
                   <li>
@@ -86,7 +85,22 @@
                     </li>
                     <li class="active"><a href="<%= destroy_secretary_session_path %>">Log Out</a></li>
                   <% else %>
-                    
+                  <li>
+                    <a href="">Accounting</a>
+                  </li>
+                  <li>
+                    <a href="">Laboratory</a>
+                  </li>
+                  <li>
+                    <a href="">Doctors</a>
+                  </li>
+                  <li>
+                    <a href="">Patients</a>
+                  </li>
+                  <li>
+                    <a href="">Home</a>
+                  </li>
+
                   <% end %>
                 <% end %>
               <% end %>
