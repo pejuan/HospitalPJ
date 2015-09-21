@@ -66,16 +66,7 @@
                 <% else %>
                   <% if secretary_signed_in? %>
                     <li>
-                      <a href="">Mi Perfil</a>
-                    </li>
-                    <li>
-                      <a href="">Generar Estadisticas</a>
-                    </li>
-                    <li>
-                      <a href="">Ver/Subir Registros</a>
-                    </li>
-                    <li>
-                      <a href="<%= edit_secretary_registration_path %>">Editar Cuenta</a>
+                      <a href="<%= bills_path %>">Bills</a>
                     </li>
                     <li class="active"><a href="<%= destroy_secretary_session_path %>">Log Out</a></li>
                   <% else %>
