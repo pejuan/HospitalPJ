@@ -19,29 +19,10 @@
     <%= f.label :billDate %><br>
     <%= f.date_select :billDate %>
   </div>
-  <div class="field">
-    <%= f.label :hospitalizationCost %><br>
-    <%= f.text_field :hospitalizationCost %>
-  </div>
-  <div class="field">
-    <%= f.label :hemogramCost %><br>
-    <%= f.text_field :hemogramCost %>
-  </div>
-  <div class="field">
-    <%= f.label :doctorsPayment %><br>
-    <%= f.text_field :doctorsPayment %>
-  </div>
-  <div class="field">
-    <%= f.label :biochemistryCost %><br>
-    <%= f.text_field :biochemistryCost %>
-  </div>
-  <div class="field">
-    <%= f.label :visit_id %><br>
-    <%= f.text_field :visit_id %>
-  </div>
+
   <div class="field">
     <%= f.label :hospitalization_id %><br>
-    <%= f.text_field :hospitalization_id %>
+    <%= f.collection_select :hospitalization_id, Hospitalization.all, :id, :id %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -10,6 +10,7 @@
       <th>Entrydate</th>
       <th>Doctor</th>
       <th>Cost</th>
+      <th>Payed?</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +23,7 @@
         <td><%= hospitalization.entryDate %></td>
         <td><%= hospitalization.doctor %></td>
         <td><%= hospitalization.cost %></td>
+        <td><%= hospitalization.payed %></td>
         <td><%= link_to 'Show', hospitalization %></td>
         <td><%= link_to 'Edit', edit_hospitalization_path(hospitalization) %></td>
         <td><%= link_to 'Destroy', hospitalization, method: :delete, data: { confirm: 'Are you sure?' } %></td>

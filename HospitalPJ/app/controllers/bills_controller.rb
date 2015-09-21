@@ -25,8 +25,64 @@ class BillsController < ApplicationController
   # POST /bills
   # POST /bills.json
   def create
+    acumHosp = 0
+    acumHemogram = 0
+    acumChem = 0
+    acumVisit = 0
+    honorarioDoctor = 0
     @bill = Bill.new(bill_params)
+    @hospitalizations = Hospitalization.all
+    @doctors = Doctor.all
+    @blood_tests = BloodTest.all
+    @blood_chemistry_tests = BloodChemistryTest.all
+    @hospitalizations.each do |hospital|
+      if hospital.id == @bill.hospitalization_id
+        if hospital.payed
 
+        else
+          acumHosp += hospital.cost
+          hospital.payed = true
+        end
+      end
+      @doctors.each do |doctor|
+        if hospital.id == @bill.hospitalization_id && hospital.doctor_id == doctor.id 
+          honorarioDoctor = doctor.cost
+        end
+      end
+    end
+    @blood_tests.each do |bt|
+      if bt.patient_id == @bill.patient_id
+        if bt.payed
+
+        else
+          acumHemogram += bt.examination_cost
+          bt.payed = true
+        end
+        acumHemogram += bt.examination_cost
+      end
+    end
+    @blood_chemistry_tests.each do |bc|
+      if bc.patient_id == @bill.patient_id
+        if bc.payed
+
+        else
+          acumChem += bc.examination_cost
+          bc.payed = true
+        end
+        
+      end
+    end
+   # @bill.hemogramCost = 0
+   # @bill.biochemistryCost = 0
+   # @bill.doctorsPayment = 0
+   # @bill.hospitalizationCost = 0
+   # @bill.total = 0
+
+    @bill.hemogramCost = acumHemogram
+    @bill.biochemistryCost = acumChem
+    @bill.doctorsPayment = honorarioDoctor
+    @bill.hospitalizationCost = acumHosp
+    @bill.total = acumHosp+acumChem+acumHemogram+honorarioDoctor
     respond_to do |format|
       if @bill.save
         format.html { redirect_to @bill, notice: 'Bill was successfully created.' }

@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :doctor_id %><br>
-    <%= f.text_field :doctor_id %>
+    <%= f.collection_select :doctor_id, Doctor.all, :id, :email %>
   </div>
   <div class="field">
     <%= f.label :cost %><br>

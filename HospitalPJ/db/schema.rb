@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150920235311) do
+ActiveRecord::Schema.define(version: 20150921005406) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20150920235311) do
     t.integer  "hospitalization_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.float    "total"
   end
 
   add_index "bills", ["hospitalization_id"], name: "index_bills_on_hospitalization_id"
@@ -72,6 +73,7 @@ ActiveRecord::Schema.define(version: 20150920235311) do
     t.float    "examination_cost"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.boolean  "payed"
   end
 
   add_index "blood_chemistry_tests", ["microbiologist_id"], name: "index_blood_chemistry_tests_on_microbiologist_id"
@@ -94,6 +96,7 @@ ActiveRecord::Schema.define(version: 20150920235311) do
     t.float    "examination_cost"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.boolean  "payed"
   end
 
   add_index "blood_tests", ["patient_id"], name: "index_blood_tests_on_patient_id"
@@ -256,6 +259,7 @@ ActiveRecord::Schema.define(version: 20150920235311) do
     t.integer  "doctor_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.boolean  "payed"
   end
 
   add_index "visits", ["doctor_id"], name: "index_visits_on_doctor_id"
