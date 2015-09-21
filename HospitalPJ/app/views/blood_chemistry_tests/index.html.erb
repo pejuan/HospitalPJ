@@ -1,6 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Blood Chemistry Tests</h1>
+<div class="row">
+  <div class="twelve columns text-center"><br />
+    <h1>Blood Chemistry Tests Database</h1>
+  </div>
+</div>
 
 <table>
   <thead>
@@ -10,12 +12,12 @@
       <th>Uric acid</th>
       <th>Creatinine</th>
       <th>Cholesterol</th>
-      <th>Hdl</th>
-      <th>Ldl</th>
+      <th>HDL</th>
+      <th>LDL</th>
       <th>Triglycerides</th>
-      <th>Got</th>
-      <th>Gpt</th>
-      <th>Ggt</th>
+      <th>GOT</th>
+      <th>GPT</th>
+      <th>GGT</th>
       <th>Alkaline phosphatase</th>
       <th>Calcium</th>
       <th>Iron</th>
@@ -26,7 +28,7 @@
       <th>Patient</th>
       <th>Microbiologist</th>
       <th>Examination cost</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -51,12 +53,11 @@
         <td><%= blood_chemistry_test.sodium %></td>
         <td><%= blood_chemistry_test.bilirubin %></td>
         <td><%= blood_chemistry_test.test_date %></td>
-        <td><%= blood_chemistry_test.patient %></td>
-        <td><%= blood_chemistry_test.microbiologist %></td>
+        <td><%= blood_chemistry_test.patient.name %> <%= blood_chemistry_test.patient.lastname %></td>
+        <td><%= blood_chemistry_test.microbiologist.name %> <%= blood_chemistry_test.microbiologist.lastname %></td>
         <td><%= blood_chemistry_test.examination_cost %></td>
-        <td><%= link_to 'Show', blood_chemistry_test %></td>
-        <td><%= link_to 'Edit', edit_blood_chemistry_test_path(blood_chemistry_test) %></td>
-        <td><%= link_to 'Destroy', blood_chemistry_test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_blood_chemistry_test_path(blood_chemistry_test), class:"button round tiny secondary" %></td>
+        <td><%= link_to 'Delete', blood_chemistry_test, method: :delete, data: { confirm: 'Are you sure?' }, class:"button round tiny alert" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -64,4 +65,8 @@
 
 <br>
 
-<%= link_to 'New Blood chemistry test', new_blood_chemistry_test_path %>
+<div class="row">
+  <div class="twelve columns text-center"><br />
+    <%= link_to 'New Blood chemistry test', new_blood_chemistry_test_path, class:"button round success" %>
+  </div>
+</div>
