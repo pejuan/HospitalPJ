@@ -26,32 +26,32 @@
           <!-- Right Nav Section -->
           <ul class="right">
             <% if user_signed_in? %>
+            <li>
+              <a href="<%= static_pages_home_path %>">Home</a>
+            </li>
               <li>
-                <a href="">Mi Perfil</a>
+                <a href="<%= patients_path %>">My Profile</a>
               </li>
               <li>
-                <a href="">Generar Estadisticas</a>
-              </li>
-              <li>
-                <a href="">Ver/Subir Registros</a>
-              </li>
-              <li>
-                <a href="<%= edit_user_registration_path %>">Editar Cuenta</a>
+                <a href="#">Edit My Profile</a>
               </li>
               <li class="active"><a href="<%= destroy_user_session_path %>">Log Out</a></li>
             <% else %>
               <% if admin_signed_in? %>
                 <li>
-                  <a href="">Mi Perfil</a>
+                  <a href="">My Profile</a>
                 </li>
                 <li>
-                  <a href="">Generar Estadisticas</a>
+                  <a href="">Patients</a>
                 </li>
                 <li>
-                  <a href="">Ver/Subir Registros</a>
+                  <a href="">Visits</a>
                 </li>
                 <li>
-                  <a href="<%= edit_admin_registration_path %>">Editar Cuenta</a>
+                  <a href="">Hospitalizations</a>
+                </li>
+                <li>
+                  <a href="">Illness Details</a>
                 </li>
                 <li class="active"><a href="<%= destroy_admin_session_path %>">Log Out</a></li>
               <% else %>
@@ -86,19 +86,19 @@
                     <li class="active"><a href="<%= destroy_secretary_session_path %>">Log Out</a></li>
                   <% else %>
                   <li>
-                    <a href="">Accounting</a>
+                    <a href="<%= static_pages_home_path %>">Home</a>
                   </li>
                   <li>
-                    <a href="">Laboratory</a>
+                    <a href="<%= new_user_session_path %>">Patients</a>
                   </li>
                   <li>
                     <a href="">Doctors</a>
                   </li>
                   <li>
-                    <a href="">Patients</a>
+                    <a href="">Laboratory</a>
                   </li>
                   <li>
-                    <a href="">Home</a>
+                    <a href="">Accounting</a>
                   </li>
 
                   <% end %>

@@ -10,64 +10,68 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    <div class="large-6 columns">
+      <div class="field">
+        <%= f.label :name, 'Name' %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :lastname, 'Last Name' %><br>
+        <%= f.text_field :lastname %>
+      </div>
+      <div class="field">
+        <%= f.label :registryDate, 'Regsitry Date' %><br>
+        <%= f.date_select :registryDate, :order => [:day, :month, :year],:start_year => 1900, :end_year => Time.now.year, class: "inline-list" %>
+      </div>
+      <div class="field">
+        <%= f.label :address, 'Address' %><br>
+        <%= f.text_area :address %>
+      </div>
+      <div class="field">
+        <%= f.label :bloodType, 'Blood Type' %><br>
+        <%= f.select :bloodType, options_for_select([["O-"], ["O+"], ["A-"], ["A+"], ["B-"],["B+"], ["AB-"],["AB+"]]) %>
+      </div>
+      <div class="field">
+        <%= f.label :sex, 'Sex' %><br>
+        <%= f.select :sex, options_for_select([["Male"], ["Female"]]) %>
+      </div>
+    </div>
+    <div class="large-6 columns">
+      <div class="field">
+        <%= f.label :maritalStatus, 'Marital Status' %><br>
+        <%= f.select :maritalStatus, options_for_select([["Single"], ["Married"], ["Divorced"], ["Widowed"], ["Civil Union"]]) %>
+      </div>
+      <div class="field">
+        <%= f.label :birthdate, 'Birth Date' %><br>
+          <%= f.date_select :birthdate, :order => [:day, :month, :year],:start_year => 1900, :end_year => Time.now.year %>
+      </div>
+      <div class="field">
+        <%= f.label :phoneNumber, 'Phone Number' %><br>
+        <%= f.text_field :phoneNumber %>
+      </div>
+      <div class="field">
+        <%= f.label :cellphone, 'Cellphone Number' %><br>
+        <%= f.text_field :cellphone %>
+      </div>
+      <div class="field">
+        <%= f.label :emergencyContact, 'Emergency Contact' %><br>
+        <%= f.text_field :emergencyContact %>
+      </div>
+      <div class="field">
+        <%= f.label :occupation, 'Occupation' %><br>
+        <%= f.text_field :occupation %>
+      </div>
+      <div class="field">
+        <%= f.label :allergies, 'Allergies' %><br>
+        <%= f.text_area :allergies %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :lastname %><br>
-    <%= f.text_field :lastname %>
-  </div>
-  <div class="field">
-    <%= f.label :registryDate %><br>
-    <%= f.date_select :registryDate, :order => [:day, :month, :year],:start_year => 1900, :end_year => Time.now.year %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_area :address %>
-  </div>
-  <div class="field">
-    <%= f.label :bloodType %><br>
-    <%= f.select :bloodType, options_for_select([["O-"], ["O+"], ["A-"], ["A+"], ["B-"],["B+"], ["AB-"],["AB+"]]) %>
-  </div>
-  <div class="field">
-    <%= f.label :sex %><br>
-    <%= radio_button_tag(:sex, "Male") %>
-    <%= label_tag(:sex, "Male") %>
-    <%= radio_button_tag(:sex, "Female") %>
-    <%= label_tag(:sex, "Female") %>
-  </div>
-  <div class="field">
-    <%= f.label :maritalStatus, 'Marital Status' %><br>
-    <%= f.select :maritalStatus, options_for_select([["Single"], ["Married"], ["Divorced"], ["Widowed"], ["Civil Union"]]) %>
-  </div>
-  <div class="field">
-    <%= f.label :birthdate %><br>
-      <%= f.date_select :birthdate, :order => [:day, :month, :year],:start_year => 1900, :end_year => Time.now.year %>
-  </div>
-  <div class="field">
-    <%= f.label :phoneNumber %><br>
-    <%= f.text_field :phoneNumber %>
-  </div>
-  <div class="field">
-    <%= f.label :cellphone %><br>
-    <%= f.text_field :cellphone %>
-  </div>
-  <div class="field">
-    <%= f.label :emergencyContact %><br>
-    <%= f.text_field :emergencyContact %>
-  </div>
-  <div class="field">
-    <%= f.label :occupation %><br>
-    <%= f.text_field :occupation %>
-  </div>
-  <div class="field">
-    <%= f.label :allergies %><br>
-    <%= f.text_area :allergies %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+    <div class="twelve columns text-center"><br />
+      <div class="actions">
+        <%= link_to 'Back', patients_path, class: "button round secondary" %> <%= f.submit "Submit", class: "button round" %>
+      </div>
+    </div>
   </div>
 <% end %>
