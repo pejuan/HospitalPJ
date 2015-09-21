@@ -26,11 +26,9 @@
 
       <div class="twelve columns text-center"><br />
         <div class="actions">
-          <%= f.submit "Sign up!", class: "button round" %>
+          <%= link_to "Log in", new_session_path(resource_name), class: "button round info" %> <%= f.submit "Sign up!", class: "button round success" %>
         </div>
       </div>
     <% end %>
-
-    <%= render "devise/shared/links" %>
   </div>
 </div>

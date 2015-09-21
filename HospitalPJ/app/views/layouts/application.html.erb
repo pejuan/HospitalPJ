@@ -32,14 +32,11 @@
               <li>
                 <a href="<%= patients_path %>">My Profile</a>
               </li>
-              <li>
-                <a href="#">Edit My Profile</a>
-              </li>
               <li class="active"><a href="<%= destroy_user_session_path %>">Log Out</a></li>
             <% else %>
               <% if admin_signed_in? %>
                 <li>
-                  <a href="">My Profile</a>
+                  <a href="<%= doctors_path %>">My Profile</a>
                 </li>
                 <li>
                   <a href="">Patients</a>
