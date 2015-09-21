@@ -11,63 +11,73 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :test_date %><br>
-    <%= f.date_select :test_date %>
-  </div>
-  <div class="field">
-    <%= f.label :erythrocytes %><br>
-    <%= f.text_field :erythrocytes %>
-  </div>
-  <div class="field">
-    <%= f.label :hemoglobin %><br>
-    <%= f.text_field :hemoglobin %>
-  </div>
-  <div class="field">
-    <%= f.label :vcm %><br>
-    <%= f.text_field :vcm %>
-  </div>
-  <div class="field">
-    <%= f.label :hcm %><br>
-    <%= f.text_field :hcm %>
-  </div>
-  <div class="field">
-    <%= f.label :lymphocytes %><br>
-    <%= f.text_field :lymphocytes %>
-  </div>
-  <div class="field">
-    <%= f.label :leukocytes %><br>
-    <%= f.text_field :leukocytes %>
-  </div>
-  <div class="field">
-    <%= f.label :neutrophils %><br>
-    <%= f.text_field :neutrophils %>
-  </div>
-  <div class="field">
-    <%= f.label :eosinofilos %><br>
-    <%= f.text_field :eosinofilos %>
-  </div>
-  <div class="field">
-    <%= f.label :platelets %><br>
-    <%= f.text_field :platelets %>
-  </div>
-  <div class="field">
-    <%= f.label :vsg %><br>
-    <%= f.text_field :vsg %>
-  </div>
-  <div class="field">
-    <%= f.label :patient_id %><br>
-    <%= f.collection_select :patient_id, Patient.all, :id, :email %>
-  </div>
-  <div class="field">
-    <%= f.label :microbiologist %><br>
-    <%= f.text_field :microbiologist %>
-  </div>
-  <div class="field">
-    <%= f.label :examination_cost %><br>
-    <%= f.text_field :examination_cost %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <div class="field">
+        <%= f.label :test_date %><br>
+        <%= f.date_select :test_date %>
+      </div>
+      <div class="field">
+        <%= f.label :erythrocytes %><br>
+        <%= f.text_field :erythrocytes %>
+      </div>
+      <div class="field">
+        <%= f.label :hemoglobin %><br>
+        <%= f.text_field :hemoglobin %>
+      </div>
+      <div class="field">
+        <%= f.label :vcm, "VCM"%><br>
+        <%= f.text_field :vcm %>
+      </div>
+      <div class="field">
+        <%= f.label :hcm, "HCM"%><br>
+        <%= f.text_field :hcm %>
+      </div>
+      <div class="field">
+        <%= f.label :lymphocytes %><br>
+        <%= f.text_field :lymphocytes %>
+      </div>
+      <div class="field">
+        <%= f.label :leukocytes %><br>
+        <%= f.text_field :leukocytes %>
+      </div>
+    </div>
+
+    <div class="large-6 columns">
+      <div class="field">
+        <%= f.label :neutrophils %><br>
+        <%= f.text_field :neutrophils %>
+      </div>
+      <div class="field">
+        <%= f.label :eosinofilos %><br>
+        <%= f.text_field :eosinofilos %>
+      </div>
+      <div class="field">
+        <%= f.label :platelets %><br>
+        <%= f.text_field :platelets %>
+      </div>
+      <div class="field">
+        <%= f.label :vsg, "VSG" %><br>
+        <%= f.text_field :vsg %>
+      </div>
+      <div class="field">
+        <%= f.label :patient_id %><br>
+        <%= f.collection_select :patient_id, Patient.all, :id, :email %>
+      </div>
+      <div class="field">
+        <%= f.label :microbiologist %><br>
+        <%= f.collection_select :microbiologist, Microbiologist.all, :id, :email %>
+      </div>
+      <div class="field">
+        <%= f.label :examination_cost %><br>
+        <%= f.text_field :examination_cost %>
+      </div>
+
+      <div class="twelve columns text-center"><br />
+        <div class="actions">
+          <%= link_to 'Back', blood_tests_path, class:"button round secondary" %> <%= f.submit "Submit", class:"button round success" %>
+        </div>
+      </div>
+    </div>
+</div>
 <% end %>

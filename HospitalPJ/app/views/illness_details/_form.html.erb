@@ -11,39 +11,47 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :mainSymptom %><br>
-    <%= f.text_field :mainSymptom %>
+  <div class="row">
+    <div class="small-6 large-centered columns">
+      <div class="field">
+        <%= f.label :mainSymptom %><br>
+        <%= f.text_field :mainSymptom %>
+      </div>
+      <div class="field">
+        <%= f.label :dateSymptomAppeared %><br>
+        <%= f.date_select :dateSymptomAppeared %>
+      </div>
+      <div class="field">
+        <%= f.label :calmsPain %><br>
+        <%= f.text_field :calmsPain %>
+      </div>
+      <div class="field">
+        <%= f.label :intensifiesPain %><br>
+        <%= f.text_field :intensifiesPain %>
+      </div>
+      <div class="field">
+        <%= f.label :peakHour %><br>
+        <%= f.time_select :peakHour %>
+      </div>
+      <div class="field">
+        <%= f.label :patient_id %><br>
+        <%= f.collection_select :patient_id, Patient.all, :id, :email %>
+      </div>
+      <div class="field">
+        <%= f.label :hospitalization_id %><br>
+        <%= f.collection_select :hospitalization_id, Doctor.all, :id, :id %>
+      </div>
+      <div class="field">
+        <%= f.label :visit_id %><br>
+        <%= f.collection_select :visit_id, Doctor.all, :id, :id %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :dateSymptomAppeared %><br>
-    <%= f.date_select :dateSymptomAppeared %>
-  </div>
-  <div class="field">
-    <%= f.label :calmsPain %><br>
-    <%= f.text_field :calmsPain %>
-  </div>
-  <div class="field">
-    <%= f.label :intensifiesPain %><br>
-    <%= f.text_field :intensifiesPain %>
-  </div>
-  <div class="field">
-    <%= f.label :peakHour %><br>
-    <%= f.time_select :peakHour %>
-  </div>
-  <div class="field">
-    <%= f.label :patient_id %><br>
-    <%= f.text_field :patient_id %>
-  </div>
-  <div class="field">
-    <%= f.label :hospitalization_id %><br>
-    <%= f.text_field :hospitalization_id %>
-  </div>
-  <div class="field">
-    <%= f.label :visit_id %><br>
-    <%= f.text_field :visit_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="twelve columns text-center"><br />
+      <div class="actions">
+        <%= link_to 'Back', illness_details_path, class:"button round secondary" %> <%= f.submit "Submit", class:"button round success" %>
+      </div>
+    </div>
   </div>
 <% end %>

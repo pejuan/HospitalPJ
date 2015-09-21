@@ -11,19 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :visitDate %><br>
-    <%= f.date_select :visitDate %>
-  </div>
-  <div class="field">
-    <%= f.label :Hospitalized %><br>
-    <%= f.check_box :Hospitalized %>
-  </div>
-  <div class="field">
-    <%= f.label :doctor_id %><br>
-    <%= f.text_field :doctor_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="small-6 large-centered columns">
+      <div class="field">
+        <%= f.label :visitDate, 'Appointment Date' %><br>
+          <%= f.date_select :visitDate, :order => [:day, :month, :year],:start_year => Time.now.year, :end_year => Time.now.year + 100 %>
+      </div>
+      <div class="field">
+        <%= f.label :Hospitalized, 'Hospitalized' %>
+        <%= f.check_box :Hospitalized %>
+      </div>
+      <div class="field">
+        <%= f.label :doctor_id, 'Doctor'%><br>
+        <%= f.collection_select :doctor_id, Doctor.all, :id, :email %>
+      </div>
+      <div class="twelve columns text-center"><br />
+        <div class="actions">
+          <%= link_to 'Back', visits_path, class:"button round info" %> <%= f.submit "Create Appointment", class:"button round success" %>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>

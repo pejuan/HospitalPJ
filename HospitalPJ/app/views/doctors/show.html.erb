@@ -1,44 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @doctor.name %>
-</p>
-
-<p>
-  <strong>Lastname:</strong>
-  <%= @doctor.lastname %>
-</p>
-
-<p>
-  <strong>Birthdate:</strong>
-  <%= @doctor.birthdate %>
-</p>
-
-<p>
-  <strong>Specialty:</strong>
-  <%= @doctor.specialty %>
-</p>
-
-<p>
-  <strong>Undergraduateuniversity:</strong>
-  <%= @doctor.undergraduateUniversity %>
-</p>
-
-<p>
-  <strong>Specialtyuniversity:</strong>
-  <%= @doctor.specialtyUniversity %>
-</p>
-
-<p>
-  <strong>Cost:</strong>
-  <%= @doctor.cost %>
-</p>
-
-<p>
-  <strong>Admin:</strong>
-  <%= @doctor.admin %>
-</p>
-
-<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
-<%= link_to 'Back', doctors_path %>
+<div class="row">
+  <div class="twelve columns text-center"><br />
+    <h1>Your Doctor Profile Was Successfully Created!</h1>
+    <p> Please continue! </p>
+    <%= link_to 'Continue', doctors_path, class: "button success" %>
+  </div>
+</div>

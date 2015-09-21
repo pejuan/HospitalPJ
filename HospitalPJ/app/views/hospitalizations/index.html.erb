@@ -1,40 +1,51 @@
 <p id="notice"><%= notice %></p>
 <%if admin_signed_in?%>
-<h1>Listing Hospitalizations</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Daysspent</th>
-      <th>Roomnumber</th>
-      <th>Entrydate</th>
-      <th>Doctor</th>
-      <th>Cost</th>
-      <th>Payed?</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="twelve columns text-center"><br />
+    <h1>Hospitalization Database</h1>
+  </div>
 
-  <tbody>
-    <% @hospitalizations.each do |hospitalization| %>
-      <tr>
-        <td><%= hospitalization.daysSpent %></td>
-        <td><%= hospitalization.roomNumber %></td>
-        <td><%= hospitalization.entryDate %></td>
-        <td><%= hospitalization.doctor %></td>
-        <td><%= hospitalization.cost %></td>
-        <td><%= hospitalization.payed %></td>
-        <td><%= link_to 'Show', hospitalization %></td>
-        <td><%= link_to 'Edit', edit_hospitalization_path(hospitalization) %></td>
-        <td><%= link_to 'Destroy', hospitalization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="small-10 small-centered columns">
+    <table>
+      <thead>
+        <tr>
+          <th>Days Spent</th>
+          <th>Room Number</th>
+          <th>Entry Date</th>
+          <th>Doctor</th>
+          <th>Cost</th>
+          <th>Payed</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
+      <tbody>
+        <% @hospitalizations.each do |hospitalization| %>
+          <tr>
+            <td><%= hospitalization.daysSpent %></td>
+            <td><%= hospitalization.roomNumber %></td>
+            <td><%= hospitalization.entryDate %></td>
+            <td><%= hospitalization.doctor.name %><%= hospitalization.doctor.lastname %></td>
+            <td><%= hospitalization.cost %></td>
+            <td><%= hospitalization.payed %></td>
+            <td><%= link_to 'Edit', edit_hospitalization_path(hospitalization), class:"button round tiny info" %></td>
+            <td><%= link_to 'Delete', hospitalization, method: :delete, data: { confirm: 'Are you sure?' }, class:"button round tiny alert" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
 <br>
 
-<%= link_to 'New Hospitalization', new_hospitalization_path %>
+<div class="row">
+  <div class="twelve columns text-center"><br />
+    <%= link_to 'New Hospitalization', new_hospitalization_path, class:"button round info" %>
+  </div>
+</div>
 <%else%>
   You must be logged in as a Doctor to view this page.
 <%end%>

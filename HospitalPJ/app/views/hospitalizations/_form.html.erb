@@ -10,36 +10,43 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :patient_id %><br>
-    <%= f.collection_select :patient_id, Patient.all, :id, :email %>
+  <div class="row">
+    <div class="small-6 large-centered columns">
+      <div class="field">
+        <%= f.label :patient_id, "Patient" %><br>
+        <%= f.collection_select :patient_id, Patient.all, :id, :email %>
+      </div>
+      <div class="field">
+        <%= f.label :daysSpent, "Days Spent" %><br>
+        <%= f.number_field :daysSpent %>
+      </div>
+      <div class="field">
+        <%= f.label :roomNumber, "Room Number" %><br>
+        <%= f.text_field :roomNumber %>
+      </div>
+      <div class="field">
+        <%= f.label :entryDate, "Entry Date" %><br>
+        <%= f.date_select :entryDate %>
+      </div>
+      <div class="field">
+        <%= f.label :doctor_id, "Doctor" %><br>
+        <%= f.collection_select :doctor_id, Doctor.all, :id, :email %>
+      </div>
+      <div class="field">
+        <%= f.label :cost, "Cost" %><br>
+        <%= f.text_field :cost %>
+      </div>
+      <div class="field">
+        <%= f.label :payed, "Payed?" %><br>
+        <%= f.check_box :payed %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :daysSpent %><br>
-    <%= f.number_field :daysSpent %>
-  </div>
-  <div class="field">
-    <%= f.label :roomNumber %><br>
-    <%= f.text_field :roomNumber %>
-  </div>
-  <div class="field">
-    <%= f.label :entryDate %><br>
-    <%= f.date_select :entryDate %>
-  </div>
-  <div class="field">
-    <%= f.label :doctor_id %><br>
-    <%= f.collection_select :doctor_id, Doctor.all, :id, :email %>
-  </div>
-  <div class="field">
-    <%= f.label :cost %><br>
-    <%= f.text_field :cost %>
-  </div>
-  <div class="field">
-    <%= f.label :payed %><br>
-    <%= f.check_box :payed %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="twelve columns text-center"><br />
+      <div class="actions">
+        <%= link_to 'Back', hospitalizations_path, class:"button round secondary" %> <%= f.submit "Submit", class:"button round success"%>
+      </div>
+    </div>
   </div>
 <% end %>

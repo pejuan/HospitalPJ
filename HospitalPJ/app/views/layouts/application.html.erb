@@ -3,20 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
     <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
           <li class="name">
-            <h1><a href="">Hospital Peter John</a></h1>
+            <h1><a href="">Peter John Private Hospital</a></h1>
           </li>
            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
           <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -26,67 +23,69 @@
           <!-- Right Nav Section -->
           <ul class="right">
             <% if user_signed_in? %>
-              
+            <li>
+              <a href="<%= static_pages_home_path %>">Home</a>
+            </li>
               <li>
-                <a href="">Mi Perfil</a>
+                <a href="<%= patients_path %>">My Profile</a>
               </li>
-              <li>
-                <a href="">Generar Estadisticas</a>
-              </li>
-              <li>
-                <a href="">Ver/Subir Registros</a>
-              </li>
-              <li>
-                <a href="<%= edit_user_registration_path %>">Editar Cuenta</a>
-              </li>
-              <li class="active"><a href="<%= destroy_user_session_path %>">Log Out</a></li>              
+              <li class="active"><a href="<%= destroy_user_session_path %>">Log Out</a></li>
             <% else %>
               <% if admin_signed_in? %>
+              <li>
+                <a href="<%= static_pages_home_path %>">Home</a>
+              </li>
                 <li>
-                  <a href="">Mi Perfil</a>
+                  <a href="<%= doctors_path %>">My Profile</a>
                 </li>
                 <li>
-                  <a href="">Generar Estadisticas</a>
+                  <a href="<%= patients_path %>">Patients</a>
                 </li>
                 <li>
-                  <a href="">Ver/Subir Registros</a>
+                  <a href="<%= visits_path %>">Appointments</a>
                 </li>
                 <li>
-                  <a href="<%= edit_admin_registration_path %>">Editar Cuenta</a>
+                  <a href="<%= hospitalizations_path %>">Hospitalizations</a>
                 </li>
-                <li class="active"><a href="<%= destroy_admin_session_path %>">Log Out</a></li> 
+                <li>
+                  <a href="<%= illness_details_path %>">Illness Details</a>
+                </li>
+                <li class="active"><a href="<%= destroy_admin_session_path %>">Log Out</a></li>
               <% else %>
                 <% if lab_signed_in? %>
                   <li>
-                    <a href="">Mi Perfil</a>
+                    <a href="<%= microbiologists_path %>">My Profile</a>
                   </li>
                   <li>
-                    <a href="">Generar Estadisticas</a>
+                    <a href="<%= blood_tests_path %>">Complete Blood Tests</a>
                   </li>
                   <li>
-                    <a href="">Ver/Subir Registros</a>
-                  </li>
-                  <li>
-                    <a href="<%= edit_lab_registration_path %>">Editar Cuenta</a>
+                    <a href="<%= blood_chemistry_tests_path %>">Blood Chemistry Tests</a>
                   </li>
                   <li class="active"><a href="<%= destroy_lab_session_path %>">Log Out</a></li>
                 <% else %>
                   <% if secretary_signed_in? %>
                     <li>
-                      <a href="">Mi Perfil</a>
-                    </li>
-                    <li>
-                      <a href="">Generar Estadisticas</a>
-                    </li>
-                    <li>
-                      <a href="">Ver/Subir Registros</a>
-                    </li>
-                    <li>
-                      <a href="<%= edit_secretary_registration_path %>">Editar Cuenta</a>
+                      <a href="<%= bills_path %>">Bills</a>
                     </li>
                     <li class="active"><a href="<%= destroy_secretary_session_path %>">Log Out</a></li>
                   <% else %>
-                    
+                  <li>
+                    <a href="<%= static_pages_home_path %>">Home</a>
+                  </li>
+                  <li>
+                    <a href="<%= new_user_session_path %>">Patients</a>
+                  </li>
+                  <li>
+                    <a href="<%= new_admin_session_path %>">Doctors</a>
+                  </li>
+                  <li>
+                    <a href="<%= new_lab_session_path %>">Laboratory</a>
+                  </li>
+                  <li>
+                    <a href="<%= new_secretary_session_path %>">Accounting</a>
+                  </li>
+
                   <% end %>
                 <% end %>
               <% end %>

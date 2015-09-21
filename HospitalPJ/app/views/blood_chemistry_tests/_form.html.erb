@@ -11,91 +11,101 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :glucose %><br>
-    <%= f.text_field :glucose %>
-  </div>
-  <div class="field">
-    <%= f.label :urea %><br>
-    <%= f.text_field :urea %>
-  </div>
-  <div class="field">
-    <%= f.label :uric_acid %><br>
-    <%= f.text_field :uric_acid %>
-  </div>
-  <div class="field">
-    <%= f.label :creatinine %><br>
-    <%= f.text_field :creatinine %>
-  </div>
-  <div class="field">
-    <%= f.label :cholesterol %><br>
-    <%= f.text_field :cholesterol %>
-  </div>
-  <div class="field">
-    <%= f.label :hdl %><br>
-    <%= f.text_field :hdl %>
-  </div>
-  <div class="field">
-    <%= f.label :ldl %><br>
-    <%= f.text_field :ldl %>
-  </div>
-  <div class="field">
-    <%= f.label :triglycerides %><br>
-    <%= f.text_field :triglycerides %>
-  </div>
-  <div class="field">
-    <%= f.label :got %><br>
-    <%= f.text_field :got %>
-  </div>
-  <div class="field">
-    <%= f.label :gpt %><br>
-    <%= f.text_field :gpt %>
-  </div>
-  <div class="field">
-    <%= f.label :ggt %><br>
-    <%= f.text_field :ggt %>
-  </div>
-  <div class="field">
-    <%= f.label :alkaline_phosphatase %><br>
-    <%= f.text_field :alkaline_phosphatase %>
-  </div>
-  <div class="field">
-    <%= f.label :calcium %><br>
-    <%= f.text_field :calcium %>
-  </div>
-  <div class="field">
-    <%= f.label :iron %><br>
-    <%= f.text_field :iron %>
-  </div>
-  <div class="field">
-    <%= f.label :potassium %><br>
-    <%= f.text_field :potassium %>
-  </div>
-  <div class="field">
-    <%= f.label :sodium %><br>
-    <%= f.text_field :sodium %>
-  </div>
-  <div class="field">
-    <%= f.label :bilirubin %><br>
-    <%= f.text_field :bilirubin %>
-  </div>
-  <div class="field">
-    <%= f.label :test_date %><br>
-    <%= f.date_select :test_date %>
-  </div>
-  <div class="field">
-    <%= f.label :patient_id %><br>
-    <%= f.collection_select :patient_id, Patient.all, :id, :email %>
-  </div>
-  <div class="field">
-    <%= f.label :microbiologist_id %><br>
-    <%= f.text_field :microbiologist_id %>
-  </div>
-  <div class="field">
-    <%= f.label :examination_cost %><br>
-    <%= f.text_field :examination_cost %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="row">
+    <div class="large-6 columns">
+
+        <div class="field">
+          <%= f.label :glucose %><br>
+          <%= f.text_field :glucose %>
+        </div>
+        <div class="field">
+          <%= f.label :urea %><br>
+          <%= f.text_field :urea %>
+        </div>
+        <div class="field">
+          <%= f.label :uric_acid %><br>
+          <%= f.text_field :uric_acid %>
+        </div>
+        <div class="field">
+          <%= f.label :creatinine %><br>
+          <%= f.text_field :creatinine %>
+        </div>
+        <div class="field">
+          <%= f.label :cholesterol %><br>
+          <%= f.text_field :cholesterol %>
+        </div>
+        <div class="field">
+          <%= f.label :hdl, "HDL" %><br>
+          <%= f.text_field :hdl %>
+        </div>
+        <div class="field">
+          <%= f.label :ldl, "LDL" %><br>
+          <%= f.text_field :ldl %>
+        </div>
+        <div class="field">
+          <%= f.label :triglycerides %><br>
+          <%= f.text_field :triglycerides %>
+        </div>
+        <div class="field">
+          <%= f.label :got, "GOT" %><br>
+          <%= f.text_field :got %>
+        </div>
+        <div class="field">
+          <%= f.label :gpt, "GPT" %><br>
+          <%= f.text_field :gpt %>
+        </div>
+        <div class="field">
+          <%= f.label :ggt, "GGT" %><br>
+          <%= f.text_field :ggt %>
+        </div>
+        <div class="field">
+          <%= f.label :alkaline_phosphatase %><br>
+          <%= f.text_field :alkaline_phosphatase %>
+        </div>
+    </div>
+    <div class="large-6 columns">
+
+      <div class="field">
+        <%= f.label :calcium %><br>
+        <%= f.text_field :calcium %>
+      </div>
+      <div class="field">
+        <%= f.label :iron %><br>
+        <%= f.text_field :iron %>
+      </div>
+      <div class="field">
+        <%= f.label :potassium %><br>
+        <%= f.text_field :potassium %>
+      </div>
+      <div class="field">
+        <%= f.label :sodium %><br>
+        <%= f.text_field :sodium %>
+      </div>
+      <div class="field">
+        <%= f.label :bilirubin %><br>
+        <%= f.text_field :bilirubin %>
+      </div>
+      <div class="field">
+        <%= f.label :test_date %><br>
+        <%= f.date_select :test_date %>
+      </div>
+      <div class="field">
+        <%= f.label :patient_id %><br>
+        <%= f.collection_select :patient_id, Patient.all, :id, :email %>
+      </div>
+      <div class="field">
+        <%= f.label :microbiologist_id %><br>
+        <%= f.collection_select :microbiologist_id, Microbiologist.all, :id, :email %>
+      </div>
+      <div class="field">
+        <%= f.label :examination_cost %><br>
+        <%= f.text_field :examination_cost %>
+      </div>
+      <div class="twelve columns text-center"><br />
+        <div class="actions">
+          <%= link_to 'Back', blood_chemistry_tests_path, class: "button round secondary" %> <%= f.submit "Submit", class:"button round success" %>
+        </div>
+      </div>
+    </div>
+</div>
 <% end %>

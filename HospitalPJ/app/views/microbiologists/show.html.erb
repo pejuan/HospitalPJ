@@ -1,34 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Id number:</strong>
-  <%= @microbiologist.id_number %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @microbiologist.name %>
-</p>
-
-<p>
-  <strong>Lastname:</strong>
-  <%= @microbiologist.lastname %>
-</p>
-
-<p>
-  <strong>Birthdate:</strong>
-  <%= @microbiologist.birthdate %>
-</p>
-
-<p>
-  <strong>Undergraduateuniversity:</strong>
-  <%= @microbiologist.undergraduateUniversity %>
-</p>
-
-<p>
-  <strong>Postgraduateuniversity:</strong>
-  <%= @microbiologist.postGraduateUniversity %>
-</p>
-
-<%= link_to 'Edit', edit_microbiologist_path(@microbiologist) %> |
-<%= link_to 'Back', microbiologists_path %>
+<div class="row">
+  <div class="twelve columns text-center"><br />
+    <h1>Your Microbiologist Profile Was Successfully Created!</h1>
+    <p> Please continue! </p>
+    <%= link_to 'Continue', microbiologists_path, class: "button success" %>
+  </div>
+</div>

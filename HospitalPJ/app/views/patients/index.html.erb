@@ -1,60 +1,101 @@
-<p id="notice"><%= notice %></p>
-<%if user_signed_in? || admin_signed_in?%>
-<h1>Listing Patients</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Lastname</th>
-      <th>Registrydate</th>
-      <th>Address</th>
-      <th>Bloodtype</th>
-      <th>Sex</th>
-      <th>Maritalstatus</th>
-      <th>Birthdate</th>
-      <th>Phonenumber</th>
-      <th>Cellphone</th>
-      <th>Email</th>
-      <th>Emergencycontact</th>
-      <th>Occupation</th>
-      <th>Allergies</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @patients.each do |patient| %>
-     <%if patient.user == current_user || admin_signed_in?%>
-      <tr>
-        <td><%= patient.name %></td>
-        <td><%= patient.lastname %></td>
-        <td><%= patient.registryDate %></td>
-        <td><%= patient.address %></td>
-        <td><%= patient.bloodType %></td>
-        <td><%= patient.sex %></td>
-        <td><%= patient.maritalStatus %></td>
-        <td><%= patient.birthdate %></td>
-        <td><%= patient.phoneNumber %></td>
-        <td><%= patient.cellphone %></td>
-        <td><%= patient.email %></td>
-        <td><%= patient.emergencyContact %></td>
-        <td><%= patient.occupation %></td>
-        <td><%= patient.allergies %></td>
-        <td><%= patient.user %></td>
-        <td><%= link_to 'Show', patient %></td>
-        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <% end %>
+<%if user_signed_in? %>
+<div id="topBar">
+  <div class="row">
+    <div class="twelve columns text-center"><br />
+          <h1 id="mainTitle">Patient General Profile</h1>
+    </div>
+  </div>
+</div>
+  <% @patients.each do |patient| %>
+    <%if patient.user == current_user%>
+      <ul class="pricing-table">
+        <li class="title"><%= patient.name %> <%= patient.lastname %></li>
+        <li class="price">Blood Type: <%= patient.bloodType %></li>
+        <li class="description"><%= patient.address %></li>
+        <li class="bullet-item"><b>Registry Date: </b><%=patient.registryDate%></li>
+        <li class="bullet-item"><b>Sex: </b><%=patient.sex%></li>
+        <li class="bullet-item"><b>Marital Status: </b><%=patient.maritalStatus%></li>
+        <li class="bullet-item"><b>Birth Date:  </b><%=patient.birthdate%></li>
+        <li class="bullet-item"><b>Phone Number:  </b><%=patient.phoneNumber%></li>
+        <li class="bullet-item"><b>Cellphone Number:  </b><%=patient.cellphone%></li>
+        <li class="bullet-item"><b>Email:  </b><%=patient.email%></li>
+        <li class="bullet-item"><b>Emergency Contact:  </b><%=patient.emergencyContact%></li>
+        <li class="bullet-item"><b>Occupation:  </b><%=patient.occupation%></li>
+        <li class="bullet-item"><b>Allergies:  </b><%=patient.allergies%></li>
+        <li class="bullet-item"><a class="button round info" href="<%= edit_patient_path(patient)%>">Edit Profile</a> <%= link_to 'Delete', patient, class:"button round alert", method: :delete, data: { confirm: 'Are you sure you want to delete?' } %></li>
+        </li>
+      </ul>
     <% end %>
-  </tbody>
-</table>
+  <% end %>
+  <% if current_user.patient.nil? %>
+    <div class="row">
+      <div class="twelve columns text-center"><br />
+            <h2>Oops! Something is Missing!</h2>
+            <p>You are a new patient! Please create a profile! </p>
+            <%= link_to 'New Profile', new_patient_path, class: "button success" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 
+<%if admin_signed_in?%>
+<div class="row">
+  <div class="twelve columns text-center"><br />
+        <h1>Patient Database</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns"><br />
+    <table>
+      <thead>
+        <tr>
+          <th width>Name</th>
+          <th>Lastname</th>
+          <th>Registry Date</th>
+          <th>Address</th>
+          <th>Bloodtype</th>
+          <th>Sex</th>
+          <th>Maritalstatus</th>
+          <th>Birth Date</th>
+          <th>Phone Number</th>
+          <th>Cell Phone</th>
+          <th>Email</th>
+          <th>Emergency Contact</th>
+          <th>Occupation</th>
+          <th>Allergies</th>
+          <th>Operations</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @patients.each do |patient| %>
+          <tr>
+            <td><%= patient.name %></td>
+            <td><%= patient.lastname %></td>
+            <td><%= patient.registryDate %></td>
+            <td><%= patient.address %></td>
+            <td><%= patient.bloodType %></td>
+            <td><%= patient.sex %></td>
+            <td><%= patient.maritalStatus %></td>
+            <td><%= patient.birthdate %></td>
+            <td><%= patient.phoneNumber %></td>
+            <td><%= patient.cellphone %></td>
+            <td><%= patient.email %></td>
+            <td><%= patient.emergencyContact %></td>
+            <td><%= patient.occupation %></td>
+            <td><%= patient.allergies %></td>
+            <td><%= link_to 'Edit', edit_patient_path(patient), class:"button round tiny info" %> </td>
+            <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' }, class:"button round tiny alert" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>
 <br>
-
-<%= link_to 'New Patient', new_patient_path %>
-<% else %>
+<% if !user_signed_in? && !admin_signed_in? %>
   You must me logged in as Doctor or Patient to view this page.
+<% end %>
 <% end %>

@@ -11,36 +11,44 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :lastname %><br>
-    <%= f.text_field :lastname %>
-  </div>
-  <div class="field">
-    <%= f.label :birthdate %><br>
-    <%= f.date_select :birthdate %>
-  </div>
-  <div class="field">
-    <%= f.label :specialty %><br>
-    <%= f.text_field :specialty %>
-  </div>
-  <div class="field">
-    <%= f.label :undergraduateUniversity %><br>
-    <%= f.text_field :undergraduateUniversity %>
-  </div>
-  <div class="field">
-    <%= f.label :specialtyUniversity %><br>
-    <%= f.text_field :specialtyUniversity %>
-  </div>
-  <div class="field">
-    <%= f.label :cost %><br>
-    <%= f.text_field :cost %>
+  <div class="row">
+  <div class="large-6 columns">
+    <div class="field">
+      <%= f.label :name, "Name" %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :lastname, "Last Name" %><br>
+      <%= f.text_field :lastname %>
+    </div>
+    <div class="field">
+      <%= f.label :birthdate, "Birth Date" %><br>
+      <%= f.date_select :birthdate, :order => [:day, :month, :year],:start_year => 1900, :end_year => Time.now.year %>
+    </div>
+    <div class="field">
+      <%= f.label :specialty, "Specialty" %><br>
+      <%= f.text_field :specialty %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="large-6 columns">
+    <div class="field">
+      <%= f.label :undergraduateUniversity, "Undergraduate University" %><br>
+      <%= f.text_field :undergraduateUniversity %>
+    </div>
+    <div class="field">
+      <%= f.label :specialtyUniversity, "Specialty University" %><br>
+      <%= f.text_field :specialtyUniversity %>
+    </div>
+    <div class="field">
+      <%= f.label :cost, "Cost" %><br>
+      <%= f.text_field :cost %>
+    </div>
+    <div class="twelve columns text-center"><br />
+      <div class="actions">
+        <%= link_to 'Back', doctors_path, class:"button round info" %> <%= f.submit "Submit", class:"button round success" %>
+      </div>
+    </div>
   </div>
+</div>
 <% end %>

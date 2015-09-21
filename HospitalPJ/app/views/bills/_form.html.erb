@@ -11,20 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :patient_id %><br>
-    <%= f.collection_select :patient_id, Patient.all, :id, :email %>
-  </div>
-  <div class="field">
-    <%= f.label :billDate %><br>
-    <%= f.date_select :billDate %>
-  </div>
+  <div class="row">
+    <div class="small-6 large-centered columns">
+      <div class="field">
+        <%= f.label :patient_id %><br>
+        <%= f.collection_select :patient_id, Patient.all, :id, :email %>
+      </div>
+      <div class="field">
+        <%= f.label :billDate %><br>
+        <%= f.date_select :billDate %>
+      </div>
 
-  <div class="field">
-    <%= f.label :hospitalization_id %><br>
-    <%= f.collection_select :hospitalization_id, Hospitalization.all, :id, :id %>
+      <div class="field">
+        <%= f.label :hospitalization_id %><br>
+        <%= f.collection_select :hospitalization_id, Hospitalization.all, :id, :id %>
+      </div>
+    </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns text-center"><br />
+    <div class="actions">
+      <%= link_to 'Back', bills_path, class:"button round secondary" %> <%= f.submit "Submit", class:"button round success" %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>

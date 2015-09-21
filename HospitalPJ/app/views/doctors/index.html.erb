@@ -1,44 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Doctors</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Lastname</th>
-      <th>Birthdate</th>
-      <th>Specialty</th>
-      <th>Undergraduateuniversity</th>
-      <th>Specialtyuniversity</th>
-      <th>Cost</th>
-      <th>Admin</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @doctors.each do |doctor| %>
-     <%if doctor.admin == current_admin %>
-      <tr>
-        <td><%= doctor.name %></td>
-        <td><%= doctor.lastname %></td>
-        <td><%= doctor.birthdate %></td>
-        <td><%= doctor.specialty %></td>
-        <td><%= doctor.undergraduateUniversity %></td>
-        <td><%= doctor.specialtyUniversity %></td>
-        <td><%= doctor.cost %></td>
-        <td><%= doctor.email %></td>
-        <td><%= doctor.admin %></td>
-        <td><%= link_to 'Show', doctor %></td>
-        <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
-        <td><%= link_to 'Destroy', doctor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-     <% end %> 
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Doctor', new_doctor_path %>
+<% if current_admin.doctor.nil? %>
+<div class="row">
+  <div class="twelve columns text-center"><br />
+    <h2>Oops! Something is Missing!</h2>
+    <p>You are a new doctor! Please create a profile! </p>
+    <%= link_to 'New Profile', new_doctor_path, class: "button success" %>
+  </div>
+</div>
+<% else %>
+<div id="topBar">
+  <div class="row">
+    <div class="twelve columns text-center"><br />
+      <h1 id="mainTitle">Doctor General Profile</h1>
+    </div>
+</div>
+<% @doctors.each do |doctor| %>
+<%if doctor.admin == current_admin %>
+<ul class="pricing-table">
+  <li class="title"> <%=doctor.name%> <%=doctor.lastname%></li>
+  <li class="price"> <%= doctor.specialty %></li>
+  <li class="bullet-item">Birth Date: <%=doctor.birthdate%></li>
+  <li class="bullet-item">Undergraduate Studies: <%=doctor.undergraduateUniversity %></li>
+  <li class="bullet-item">Specialty University: <%=doctor.specialtyUniversity %></li>
+  <li class="bullet-item">Email: <%=doctor.email %></li>
+  <li class="bullet-item">Attention Cost: <%=doctor.cost %></li>
+  <li class="cta-button"><%= link_to 'Edit Profile', edit_doctor_path(doctor), class: "button round info" %> <%= link_to 'Destroy', doctor, method: :delete, data: { confirm: 'Are you sure?' }, class: "button round alert" %></li>
+</ul>
+<% end %>
+<% end %>
+<% end %>
