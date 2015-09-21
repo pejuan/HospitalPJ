@@ -11,31 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :id_number %><br>
-    <%= f.text_field :id_number %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :lastname %><br>
-    <%= f.text_field :lastname %>
-  </div>
-  <div class="field">
-    <%= f.label :birthdate %><br>
-    <%= f.date_select :birthdate %>
-  </div>
-  <div class="field">
-    <%= f.label :undergraduateUniversity %><br>
-    <%= f.text_field :undergraduateUniversity %>
-  </div>
-  <div class="field">
-    <%= f.label :postGraduateUniversity %><br>
-    <%= f.text_field :postGraduateUniversity %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="row">
+    <div class="small-6 large-centered columns">
+      <div class="field">
+        <%= f.label :id_number %><br>
+        <%= f.text_field :id_number %>
+      </div>
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :lastname %><br>
+        <%= f.text_field :lastname %>
+      </div>
+      <div class="field">
+        <%= f.label :birthdate %><br>
+        <%= f.date_select :birthdate %>
+      </div>
+      <div class="field">
+        <%= f.label :undergraduateUniversity %><br>
+        <%= f.text_field :undergraduateUniversity %>
+      </div>
+      <div class="field">
+        <%= f.label :postGraduateUniversity %><br>
+        <%= f.text_field :postGraduateUniversity %>
+      </div>
+      <div class="twelve columns text-center"><br />
+        <div class="actions">
+          <%= link_to 'Back', microbiologists_path, class:"button round secondary" %> <%= f.submit "Submit", class:"button round success" %>
+        </div>
+      </div>
+    </div>
+</div>
 <% end %>

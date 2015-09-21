@@ -54,16 +54,13 @@
               <% else %>
                 <% if lab_signed_in? %>
                   <li>
-                    <a href="">Mi Perfil</a>
+                    <a href="<%= microbiologists_path %>">My Profile</a>
                   </li>
                   <li>
-                    <a href="">Generar Estadisticas</a>
+                    <a href="">Complete Blood Tests</a>
                   </li>
                   <li>
-                    <a href="">Ver/Subir Registros</a>
-                  </li>
-                  <li>
-                    <a href="<%= edit_lab_registration_path %>">Editar Cuenta</a>
+                    <a href="">Blood Chemistry Tests</a>
                   </li>
                   <li class="active"><a href="<%= destroy_lab_session_path %>">Log Out</a></li>
                 <% else %>
@@ -89,13 +86,13 @@
                     <a href="<%= new_user_session_path %>">Patients</a>
                   </li>
                   <li>
-                    <a href="">Doctors</a>
+                    <a href="<%= new_admin_session_path %>">Doctors</a>
                   </li>
                   <li>
-                    <a href="">Laboratory</a>
+                    <a href="<%= new_lab_session_path %>">Laboratory</a>
                   </li>
                   <li>
-                    <a href="">Accounting</a>
+                    <a href="<%= new_secretary_session_path %>">Accounting</a>
                   </li>
 
                   <% end %>
