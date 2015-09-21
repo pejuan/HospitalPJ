@@ -1,18 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Illness Details</h1>
-
+<div class="row">
+  <div class="twelve columns text-center"><br />
+    <h1>Illness Database</h1>
+  </div>
+</div>
 <table>
   <thead>
     <tr>
-      <th>Mainsymptom</th>
-      <th>Datesymptomappeared</th>
-      <th>Calmspain</th>
-      <th>Intensifiespain</th>
-      <th>Peakhour</th>
+      <th>Main Symptom</th>
+      <th>Date Symptom Appeared</th>
+      <th>Pain Soother</th>
+      <th>Pain Intensifier</th>
+      <th>Peak Hour</th>
       <th>Patient</th>
-      <th>Hospitalization</th>
-      <th>Visit</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,17 +24,17 @@
         <td><%= illness_detail.calmsPain %></td>
         <td><%= illness_detail.intensifiesPain %></td>
         <td><%= illness_detail.peakHour %></td>
-        <td><%= illness_detail.patient %></td>
-        <td><%= illness_detail.hospitalization %></td>
-        <td><%= illness_detail.visit %></td>
-        <td><%= link_to 'Show', illness_detail %></td>
-        <td><%= link_to 'Edit', edit_illness_detail_path(illness_detail) %></td>
-        <td><%= link_to 'Destroy', illness_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= illness_detail.patient.name %> <%= illness_detail.patient.lastname %></td>
+        <td><%= link_to 'Edit', edit_illness_detail_path(illness_detail), class:"button round tiny info" %></td>
+        <td><%= link_to 'Delete', illness_detail, method: :delete, data: { confirm: 'Are you sure?' }, class:"button round tiny alert" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Illness detail', new_illness_detail_path %>
+<div class="row">
+  <div class="twelve columns text-center"><br />
+    <%= link_to 'New Illness detail', new_illness_detail_path, class:"button round success" %>
+  </div>
+</div>
